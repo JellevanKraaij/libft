@@ -14,7 +14,6 @@ Thumbs.db
 
 # Files added for tests #
 #########################
-test_*
 _test_*
 *.swp
 
