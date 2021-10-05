@@ -1,6 +1,8 @@
 # Compiled source #
 ###################
 *.out
+*.o
+*.a
 
 # OS generated files #
 ######################
