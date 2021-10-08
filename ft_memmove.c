@@ -1,8 +1,8 @@
 #include "libft.h"
 
-static void	*ft_memcpy_rev(void *dst, const void *src, unsigned long n)
+static void	*ft_memcpy_rev(void *dst, const void *src, size_t n)
 {
-	unsigned char	*cdst;
+	unsigned char		*cdst;
 	const unsigned char	*csrc;
 
 	cdst = dst;
@@ -15,9 +15,9 @@ static void	*ft_memcpy_rev(void *dst, const void *src, unsigned long n)
 	return (dst);
 }
 
-void	*ft_memmove(void *dst, const void *src, unsigned long len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if(dst < src)
+	if (dst < src)
 		ft_memcpy(dst, src, len);
 	else
 		ft_memcpy_rev(dst, src, len);

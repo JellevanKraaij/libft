@@ -1,7 +1,7 @@
 #include "libft.h"
 
 // ft_memmove depends on specific funtion behavior
-void	*ft_memcpy(void *dst, const void *src, unsigned long n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*cdst;
 	const unsigned char	*csrc;
