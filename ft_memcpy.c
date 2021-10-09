@@ -3,7 +3,7 @@
 // ft_memmove depends on specific funtion behavior
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*cdst;
+	unsigned char		*cdst;
 	const unsigned char	*csrc;
 
 	cdst = dst;
