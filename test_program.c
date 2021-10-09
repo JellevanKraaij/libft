@@ -3,118 +3,70 @@
 #include <stdio.h>
 #include <string.h>
 
-int test_is_type(int(*to_test)(int), int(*original)(int));
+void check(int result)
+{
+	if (result)
+		printf("\033[1;31mERROR\033[0m\n");
+	else
+		printf("\033[1;32mOK\033[0m\n");
+}
+
+int test_char(int(*to_test)(int), int(*original)(int));
 int test_strlen(void);
 int test_memset(void);
 int test_bzero(void);
 int test_memcpy(void);
 int test_memmove(void);
 int test_strlcpy(void);
+int test_strlcat(void);
 
 int	main(void)
 {
 	printf("Checking isalpha = ");
-	if(test_is_type(&ft_isalpha, &isalpha))
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_char(&ft_isalpha, &isalpha));
+
 	printf("Checking isdigit = ");
-	if(test_is_type(&ft_isdigit, &isdigit))
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_char(&ft_isdigit, &isdigit));
+
 	printf("Checking isalnum = ");
-	if(test_is_type(&ft_isalnum, &isalnum))
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_char(&ft_isalnum, &isalnum));
+
 	printf("Checking isascii = ");
-	if(test_is_type(&ft_isascii, &isascii))
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_char(&ft_isascii, &isascii));
+
 	printf("Checking isprint = ");
-	if(test_is_type(&ft_isprint, &isprint))
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_char(&ft_isprint, &isprint));
+
+	printf("Checking tolower = ");
+	check(test_char(&ft_tolower, &tolower));
+
+	printf("Checking toupper = ");
+	check(test_char(&ft_toupper, &toupper));
+
 	printf("Checking strlen  = ");
-	if(test_strlen())
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_strlen());
+
 	printf("Checking memset  = ");
-	if(test_memset())
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_memset());
+
 	printf("Checking bzero   = ");
-	if(test_bzero())
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_bzero());
+
 	printf("Checking memcpy  = ");
-	if(test_memcpy())
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_memcpy());
+
 	printf("Checking memmove = ");
-	if(test_memmove())
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_memmove());
+
 	printf("Checking strlcpy = ");
-	if(test_strlcpy())
-	{
-		printf("\033[1;31mERROR\033[0m\n");
-	}
-	else
-	{
-		printf("\033[1;32mOK\033[0m\n");
-	}
+	check(test_strlcpy());
+
+	printf("Checking strlcat = ");
+	check(test_strlcat());
+
 }
 
-int test_is_type(int(*to_test)(int), int(*original)(int))
+int test_char(int(*to_test)(int), int(*original)(int))
 {
 	int i = -500;
 	while( i < 500)
@@ -231,17 +183,17 @@ int test_memmove(void)
 
 int test_strlcpy(void)
 {
-	// char test[100];
-	if (strlcpy(NULL, "test", 0) != ft_strlcpy(NULL, "test", 0))
+	char dest1[1] = "";
+	char dest2[1] = "";
+	if (strlcpy(dest1, "test", 0) != ft_strlcpy(dest2, "test", 0) || memcmp(dest1, dest2, 1))
 		return (1);
 	{
-	char *src = "123456789";
-	char dest1[10];
-	char dest2[10];
+	char *src = "12345678";
+	char dest1[10]="________1";
+	char dest2[10]="________1";
 	
 	if (strlcpy(dest1, src, 10) != ft_strlcpy(dest2, src, 10))
 		return(1);
-	
 	if (memcmp(dest1, dest2, 10))
 		return(1);
 	}
@@ -250,6 +202,35 @@ int test_strlcpy(void)
 	char dest1[6] = "_____1";
 	char dest2[6] = "_____1";
 	if (strlcpy(dest1, src, 5) != ft_strlcpy(dest2, src, 5))
+		return(1);
+	if (memcmp(dest1, dest2, 6))
+		return(1);
+	}
+	return(0);
+}
+
+int test_strlcat(void)
+{
+	char dest1[1] = "";
+	char dest2[1] = "";
+	if (strlcat(dest1, "test", 0) != ft_strlcat(dest2, "test", 0) || memcmp(dest1, dest2, 1))
+		return (1);
+	{
+	char *src = "123456789";
+	char dest1[17] = "test\0_________1";
+	char dest2[17] = "test\0_________1";
+	
+	if (strlcat(dest1, src, 17) != ft_strlcat(dest2, src, 17))
+		return(1);
+	
+	if (memcmp(dest1, dest2, 17))
+		return(1);
+	}
+	{
+	char *src = "123456789";
+	char dest1[17] = "test\0_________1";
+	char dest2[17] = "test\0_________1";
+	if (strlcat(dest1, src, 6) != ft_strlcat(dest2, src, 6))
 		return(1);
 	if (memcmp(dest1, dest2, 6))
 		return(1);
