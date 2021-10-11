@@ -2,16 +2,12 @@
 char	*ft_strdup(char *src)
 {
 	char	*dest;
-	int		i;
+	size_t	len;
 
-	i = ft_strlen(src);
-	dest = malloc((i + 1) * sizeof(char));
+	len = ft_strlen(src);
+	dest = malloc(len + 1);
 	if (!dest)
 		return (NULL);
-	while (i >= 0)
-	{
-		dest[i] = src[i];
-		i--;
-	}
+	ft_memcpy(dest, src, len + 1);
 	return (dest);
 }
