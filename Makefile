@@ -7,7 +7,7 @@ ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_strnlen.c ft_islower.c\
 ft_isupper.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c	\
 ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c		\
 ft_calloc.c ft_strdup.c ft_strcpy.c ft_substr.c ft_strjoin.c	\
-ft_strtrim.c ft_split.c ft_findchr.c
+ft_strtrim.c ft_split.c ft_findchr.c ft_nrlen.c ft_itoa.c
 
 OBJS = ${SRCS:.c=.o}
 
