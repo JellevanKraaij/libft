@@ -7,12 +7,12 @@ ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_strnlen.c ft_islower.c\
 ft_isupper.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c	\
 ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c		\
 ft_calloc.c ft_strdup.c ft_strcpy.c ft_substr.c ft_strjoin.c	\
-ft_strtrim.c
+ft_strtrim.c ft_split.c ft_findchr.c
 
 OBJS = ${SRCS:.c=.o}
 
 TEST_NAME = test.out
-TEST_SRCS = test_program.c
+TEST_SRCS = _test_program.c
 TEST_OBJS = ${TEST_SRCS:.c=.o}
 GCC = gcc
 
