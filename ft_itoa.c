@@ -19,7 +19,8 @@ char	*ft_itoa(int n)
 		num *= -1;
 		ret[0] = '-';
 	}
-	ret[i--] = 0;
+	ret[i] = 0;
+	i--;
 	while (i >= negative)
 	{
 		ret[i] = (num % 10) + '0';
