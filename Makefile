@@ -11,11 +11,12 @@ ft_strtrim.c ft_split.c ft_findchr.c ft_nrlen.c ft_itoa.c 		\
 ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c		\
 ft_putendl_fd.c ft_pow.c ft_putnbr_fd.c
 
-OBJS = ${SRCS:.c=.o}
+BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-TEST_NAME = test.out
-TEST_SRCS = _test_program.c
-TEST_OBJS = ${TEST_SRCS:.c=.o}
+OBJS = ${SRCS:.c=.o}
+BONUS_OBJS = ${BONUS_SRCS:.c=.o} 
+
 GCC = gcc
 
 all: ${NAME}
@@ -24,25 +25,20 @@ all: ${NAME}
 	${GCC} ${CFLAGS} ${OPTIONS} $<
 
 ${NAME}: ${OBJS}
-	ar rc ${NAME} ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 clean:
 	${RM} ${OBJS}
+
 fclean: clean
 	${RM} ${NAME}
+
 re: fclean all
 
-${TEST_NAME}: ${NAME} ${TEST_OBJS}
-	${GCC} ${TEST_OBJS} ${NAME} -o ${TEST_NAME}
+clean_name:
+	${RM} ${NAME}
 
-test: ${TEST_NAME} 
+bonus: ${BONUS_OBJS} ${NAME}
+	ar rcs ${NAME} ${BONUS_OBJS}
 
-runtest: test
-	./${TEST_NAME}
-
-retest: re fcleantest test
-
-fcleantest:
-	${RM} -f ${TEST_OBJS} ${TEST_NAME}
-
-.PHONY: all clean fclean re runtest retest fcleantest
+.PHONY: all clean fclean re clean_name bonus
