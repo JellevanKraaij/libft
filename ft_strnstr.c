@@ -15,7 +15,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		haystack++;
 		len--;
 	}
-	return (0);
+	return (NULL);
 }
 
 static int	ft_strnmatch(const char *s1, const char *s2, size_t n)

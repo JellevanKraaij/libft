@@ -1,6 +1,5 @@
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
-OPTIONS = -c 
 SRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 		\
 ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c		\
 ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_strnlen.c ft_islower.c\
@@ -17,15 +16,21 @@ ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus
 OBJS = ${SRCS:.c=.o}
 BONUS_OBJS = ${BONUS_SRCS:.c=.o} 
 
-GCC = gcc
+CC = gcc
+
+ifdef SET_BONUS
+	COMP_OBJS=${OBJS} ${BONUS_OBJS}
+else
+	COMP_OBJS=${OBJS}
+endif
 
 all: ${NAME}
 
 %.o:%.c
-	${GCC} ${CFLAGS} ${OPTIONS} $<
+	${CC} ${CFLAGS} -c $<
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+${NAME}: ${COMP_OBJS}
+	ar rcs ${NAME} ${COMP_OBJS}
 
 clean:
 	${RM} ${OBJS} ${BONUS_OBJS}
@@ -35,10 +40,7 @@ fclean: clean
 
 re: fclean all
 
-clean_name:
-	${RM} ${NAME}
+bonus:
+	@ ${MAKE} SET_BONUS=1 all
 
-bonus: ${BONUS_OBJS} ${NAME}
-	ar rcs ${NAME} ${BONUS_OBJS}
-
-.PHONY: all clean fclean re clean_name bonus
+.PHONY: all clean fclean re bonus
