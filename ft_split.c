@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 static void	ft_split_free(char **str)
 {

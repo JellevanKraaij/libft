@@ -4,9 +4,9 @@ static int	ft_strnmatch(const char *s1, const char *s2, size_t n);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (!*needle)
+	if (*needle == '\0')
 		return ((char *)haystack);
-	if (!len)
+	if (len == 0)
 		return (NULL);
 	while (*haystack && len)
 	{
