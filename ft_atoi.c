@@ -2,11 +2,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	ret;
+	int		sign;
+	long	ret;
 
-	if (!str)
-		return (0);
 	ret = 0;
 	sign = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
@@ -24,5 +22,7 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	ret *= sign;
+	if (ret < INT_MIN || ret > INT_MAX)
+		return ((sign < 0) - 1);
 	return (ret);
 }
