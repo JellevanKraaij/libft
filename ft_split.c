@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/19 15:44:30 by jvan-kra          #+#    #+#             */
+/*   Updated: 2021/10/19 15:44:30 by jvan-kra         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_split_free(char **str)
@@ -62,8 +74,7 @@ char	**ft_split(char const *s, char c)
 	ret = (char **)malloc((ft_split_count(s, c) + 1) * sizeof(char *));
 	if (ret == NULL)
 		return (NULL);
-	ret = ft_split_build(s, c, ret);
-	if (ret == NULL)
+	if (ft_split_build(s, c, ret) == NULL)
 		ft_split_free(ret);
 	return (ret);
 }
