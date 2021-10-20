@@ -6,7 +6,7 @@
 /*   By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:44:08 by jvan-kra          #+#    #+#             */
-/*   Updated: 2021/10/19 16:19:10 by jvan-kra         ###   ########.fr       */
+/*   Updated: 2021/10/20 14:19:47 by jvan-kra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char		*cdst;
-	const unsigned char	*csrc;
+	void	*_dst;
 
-	cdst = dst;
-	csrc = src;
-	while (n > 0 && (src != dst))
+	if (src == dst)
+		return (dst);
+	_dst = dst;
+	while (n > 0)
 	{
-		*cdst = *csrc;
-		cdst++;
-		csrc++;
+		*(char *)dst = *(char *)src;
+		dst++;
+		src++;
 		n--;
 	}
-	return (dst);
+	return (_dst);
 }
