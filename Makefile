@@ -6,7 +6,7 @@
 #    By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/19 15:45:22 by jvan-kra          #+#    #+#              #
-#    Updated: 2021/10/19 15:45:22 by jvan-kra         ###   ########.fr        #
+#    Updated: 2021/10/20 14:58:37 by jvan-kra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c		\
 ft_calloc.c ft_strdup.c ft_strcpy.c ft_substr.c ft_strjoin.c	\
 ft_strtrim.c ft_split.c ft_findchr.c ft_nrlen.c ft_itoa.c 		\
 ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c		\
-ft_putendl_fd.c ft_pow.c ft_putnbr_fd.c
+ft_putendl_fd.c ft_pow.c ft_putnbr_fd.c ft_strndup.c
 
 HEADERS = libft.h
 
