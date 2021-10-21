@@ -6,7 +6,7 @@
 #    By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/19 15:45:22 by jvan-kra          #+#    #+#              #
-#    Updated: 2021/10/20 16:03:53 by jvan-kra         ###   ########.fr        #
+#    Updated: 2021/10/21 13:14:54 by jvan-kra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,10 @@ CC = gcc
 
 all: ${NAME}
 
-%.o:%.c
+%.o:%.c ${HEADERS}
 	${CC} ${CFLAGS} -c $<
 
-${NAME}: ${OBJS} ${HEADERS}
+${NAME}: ${OBJS}
 	${AR} rcs ${NAME} ${OBJS}
 
 clean:
