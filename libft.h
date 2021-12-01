@@ -6,7 +6,7 @@
 /*   By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:45:17 by jvan-kra          #+#    #+#             */
-/*   Updated: 2021/10/20 14:59:42 by jvan-kra         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:58:48 by jvan-kra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 double	ft_pow(double x, double y);
+void	*ft_reallocf(void *old, size_t oldsize, size_t newsize);
 
 //-----------BONUS---------------
 
