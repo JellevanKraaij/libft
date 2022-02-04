@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 15:44:30 by jvan-kra          #+#    #+#             */
-/*   Updated: 2021/10/20 14:28:55 by jvan-kra         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   ft_split.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jvan-kra <jvan-kra@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/10/19 15:44:30 by jvan-kra      #+#    #+#                 */
+/*   Updated: 2021/10/20 14:28:55 by jvan-kra      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_split_free(char **str)
+void	ft_split_free(char **str)
 {
 	size_t	i;
 

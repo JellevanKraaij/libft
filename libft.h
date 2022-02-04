@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jvan-kra <jvan-kra@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 15:45:17 by jvan-kra          #+#    #+#             */
-/*   Updated: 2021/12/01 19:58:48 by jvan-kra         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   libft.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jvan-kra <jvan-kra@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/10/19 15:45:17 by jvan-kra      #+#    #+#                 */
+/*   Updated: 2021/12/01 19:58:48 by jvan-kra      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+void	ft_split_free(char **str);
 size_t	ft_findchr(const char *str, char c);
 long	ft_nrlen(long input);
 char	*ft_itoa(int n);
