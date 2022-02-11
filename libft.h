@@ -64,6 +64,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
+int		ft_abs(int num);
 double	ft_pow(double x, double y);
 void	*ft_reallocf(void *old, size_t oldsize, size_t newsize);
 
