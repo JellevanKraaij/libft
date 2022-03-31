@@ -1,8 +1,8 @@
 # Compiled source #
 ###################
-*.out
 *.o
-*.a
+libft.a
+build/
 
 # OS generated files #
 ######################

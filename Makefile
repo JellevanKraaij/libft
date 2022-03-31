@@ -25,7 +25,10 @@ ft_lstadd_front.c ft_lstsize.c ft_lstlast.c	ft_lstadd_back.c	\
 ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c			\
 ft_reallocf.c ft_abs.c
 
-HEADERS = libft.h
+SRCS := $(addprefix src/, $(SRCS))
+
+HEADER_DIR = ./include
+HEADER = $(HEADER_DIR)/libft.h
 
 OBJS = ${SRCS:.c=.o}
 
@@ -34,9 +37,9 @@ CC = gcc
 all: ${NAME}
 
 %.o:%.c
-	${CC} ${CFLAGS} -c $<
+	${CC} ${CFLAGS} -I$(HEADER_DIR) -c $< -o $@
 
-${NAME}: ${OBJS} ${HEADERS}
+${NAME}: ${OBJS} ${HEADER}
 	${AR} rcs ${NAME} ${OBJS}
 
 clean:
