@@ -12,12 +12,17 @@
 
 #include "libft.h"
 
-void	ft_split_free(char **str)
+static size_t	ft_findchrset(const char *str, const char *set)
 {
-	ft_dstrfree(str);
+	int	i;
+
+	i = 0;
+	while (str[i] && !ft_strchr(set, str[i]))
+		i++;
+	return (i);
 }
 
-static size_t	ft_split_count(char const *s, char c)
+static size_t	ft_split_count(char const *s, const char *set)
 {
 	size_t	str_cnt;
 	size_t	tmp;
@@ -25,7 +30,7 @@ static size_t	ft_split_count(char const *s, char c)
 	str_cnt = 0;
 	while (*s)
 	{
-		tmp = ft_findchr(s, c);
+		tmp = ft_findchrset(s, set);
 		s += tmp;
 		if (tmp > 0)
 			str_cnt++;
@@ -35,7 +40,7 @@ static size_t	ft_split_count(char const *s, char c)
 	return (str_cnt);
 }
 
-static char	**ft_split_build(char const *s, char c, char **ret)
+static char	**ft_split_build(char const *s, const char *set, char **ret)
 {
 	size_t	str_cnt;
 	size_t	tmp;
@@ -43,7 +48,7 @@ static char	**ft_split_build(char const *s, char c, char **ret)
 	str_cnt = 0;
 	while (*s)
 	{
-		tmp = ft_findchr(s, c);
+		tmp = ft_findchrset(s, set);
 		if (tmp > 0)
 		{
 			ret[str_cnt] = ft_substr(s, 0, tmp);
@@ -59,14 +64,14 @@ static char	**ft_split_build(char const *s, char c, char **ret)
 	return (ret);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_splitset(char const *s, const char *set)
 {
 	char	**ret;
 
-	ret = (char **)malloc((ft_split_count(s, c) + 1) * sizeof(char *));
+	ret = (char **)malloc((ft_split_count(s, set) + 1) * sizeof(char *));
 	if (ret == NULL)
 		return (NULL);
-	if (ft_split_build(s, c, ret) == NULL)
+	if (ft_split_build(s, set, ret) == NULL)
 	{
 		ft_split_free(ret);
 		return (NULL);

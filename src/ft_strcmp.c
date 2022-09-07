@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_substr.c                                        :+:    :+:            */
+/*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jvan-kra <jvan-kra@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 15:45:07 by jvan-kra      #+#    #+#                 */
-/*   Updated: 2021/10/22 14:41:24 by jvan-kra      ########   odam.nl         */
+/*   Created: 2021/10/19 15:44:55 by jvan-kra      #+#    #+#                 */
+/*   Updated: 2021/10/19 15:44:55 by jvan-kra      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/**
+ * @brief compare 2 strings
+ * 
+ * @param s1
+ * @param s2
+ * @return int if identical returns 0
+ */
+
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (start > ft_strnlen(s, start + len))
-		return (ft_strdup(""));
-	return (ft_strndup(s + start, len));
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_substr.c                                        :+:    :+:            */
+/*   ft_realloc.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jvan-kra <jvan-kra@student.42.fr>            +#+                     */
+/*   By: jvan-kra <jvan-kra@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 15:45:07 by jvan-kra      #+#    #+#                 */
-/*   Updated: 2021/10/22 14:41:24 by jvan-kra      ########   odam.nl         */
+/*   Created: 2022/02/04 21:36:43 by jvan-kra      #+#    #+#                 */
+/*   Updated: 2022/02/04 21:36:43 by jvan-kra      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_realloc(void *old, size_t oldsize, size_t newsize)
 {
-	if (start > ft_strnlen(s, start + len))
-		return (ft_strdup(""));
-	return (ft_strndup(s + start, len));
+	void	*ret;
+
+	ret = malloc(newsize);
+	if (ret == NULL)
+		return (NULL);
+	ft_memcpy(ret, old, oldsize);
+	return (ret);
 }

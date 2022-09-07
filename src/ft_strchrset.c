@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_substr.c                                        :+:    :+:            */
+/*   ft_strchrset.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jvan-kra <jvan-kra@student.42.fr>            +#+                     */
+/*   By: jvna-kra <jvan-kra@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 15:45:07 by jvan-kra      #+#    #+#                 */
-/*   Updated: 2021/10/22 14:41:24 by jvan-kra      ########   odam.nl         */
+/*   Created: 2022/04/26 17:32:48 by jvna-kra      #+#    #+#                 */
+/*   Updated: 2022/04/26 17:32:48 by jvna-kra      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strchrset(const char *s, const char *set)
 {
-	if (start > ft_strnlen(s, start + len))
-		return (ft_strdup(""));
-	return (ft_strndup(s + start, len));
+	while (*s)
+	{
+		if (ft_strrchr(set, *s))
+			return ((char *)s);
+		s++;
+	}
+	return (NULL);
 }
